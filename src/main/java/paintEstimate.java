@@ -28,23 +28,61 @@ public class paintEstimate {
             totalSqFeet = sqFeetPerRoom + totalSqFeet;
         }
 
-        double rateForConversion = totalSqFeet / 115;
+        double gallonsOfPaint = getTotalGallons(totalSqFeet);
+        System.out.println("Total Gallons Needed: " + gallonsOfPaint);
 
-        double gallonsOfPaint = Math.ceil(rateForConversion);
-        System.out.println("Required Gallons of Paint: " + gallonsOfPaint);
+        double timeForLabor = getLaborTime(totalSqFeet);
+        System.out.println("Total Labor Hours: " + timeForLabor);
 
-        double totalLaborTime = rateForConversion * 8;
-        System.out.println("Total Labor Hours: " + totalLaborTime);
-
-        double totalPaintPrice = gallonsOfPaint * paintPricePerGallon;
+        double totalPaintPrice = getCostOfPaint(gallonsOfPaint, paintPricePerGallon);
         System.out.println("Total Cost of Paint: $" + totalPaintPrice);
-        
-        double totalLaborPrice = totalLaborTime*18;
+
+        double totalLaborPrice = getCostOfLabor(timeForLabor);
         System.out.println("Total Cost of Labor: $" + totalLaborPrice);
-        
-        double totalEstimate= totalLaborPrice+totalPaintPrice;
+
+        double totalEstimate = getEstimate(totalPaintPrice, totalLaborPrice);
         System.out.println("Total Estimate: $" + totalEstimate);
 
     }
 
+    //Method 1
+    //calculate number of gallons of paint needed
+    // method needs totalSqFeet
+    //return totalGallons
+    public static double getTotalGallons(double totalSqFeet) {
+        double totalGallons = Math.ceil(totalSqFeet / 115);
+        return totalGallons;
+    }
+    //Method 2
+    //calculate labor time
+    // methid needs total sqaure footage
+    //return labor time
+    public static double getLaborTime(double totalSqFeet) {
+        double totalLaborTime = Math.ceil((totalSqFeet / 115) * 8);
+        return totalLaborTime;
+    }
+    //Method 3
+    //Calculate total paint price
+    //method needs totalGallons, priceOfPaint
+    //return totalPaintPrice
+    public static double getCostOfPaint(double gallonsOfPaint, double paintPricePerGallon) {
+        double totalCostOfPaint = gallonsOfPaint * paintPricePerGallon;
+        return totalCostOfPaint;
+    }
+    //Method 4 
+    //calculate total labor price
+    //needs total labor time, priceOfLabor
+    //return labor price
+    public static double getCostOfLabor(double timeForLabor) {
+        double costOfLabor = timeForLabor * 18;
+        return costOfLabor;
+    }
+    // Method 5
+    //Calculate total price
+    //needs totalLaborPrice and totalPaintPrice
+    //return totalPrice
+    public static double getEstimate(double totalPaintPrice, double totalLaborPrice) {
+        double finalEstimate = totalPaintPrice + totalLaborPrice;
+        return finalEstimate;
+    }
 }
