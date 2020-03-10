@@ -10,10 +10,8 @@
  */
 import java.util.Scanner;
 public class isEvenOrOdd {
-    System.out.println("Please input a whole number");
 
     public static void main(String[] args) {
-
     }
 
     public static int isEvenOrOdd(int number) {
