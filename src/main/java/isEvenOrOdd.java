@@ -9,9 +9,21 @@
  * @author 0781317
  */
 import java.util.Scanner;
+
 public class isEvenOrOdd {
 
     public static void main(String[] args) {
+        System.out.println("Please input a positive interger");
+        Scanner keyboard = new Scanner(System.in);
+        int number = keyboard.nextInt();
+
+        int flag = isEvenOrOdd(number);
+
+        if (flag == 1) {
+            System.out.println(number + " is Even!");
+        } else {
+            System.out.println(number + " is Odd!");
+        }
     }
 
     public static int isEvenOrOdd(int number) {

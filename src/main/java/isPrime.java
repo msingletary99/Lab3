@@ -15,10 +15,10 @@ public class isPrime {
     public static void main(String[] args) {
         //prompt user to input the whole number they wish to analyze
         System.out.println("Plese input a whole number.");
+      
 
         Scanner keyboard = new Scanner(System.in);
         int number = keyboard.nextInt();
-
 
         int flag = isPrime(number);
 
